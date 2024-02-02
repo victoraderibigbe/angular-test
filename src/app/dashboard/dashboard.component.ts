@@ -35,4 +35,14 @@ export class DashboardComponent {
     localStorage.removeItem('admin_id')
     this.route.navigate(['/adminlogin'])
   }
+
+  handleEdit(i: number) {
+
+  }
+
+  handleDelete(i: number) {
+    this.allStudents.splice(i, 1)
+    localStorage.setItem('students_', JSON.stringify(this.allStudents))
+    window.location.reload()
+  }
 }
