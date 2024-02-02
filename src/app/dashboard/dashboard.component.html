@@ -1,0 +1,25 @@
+<div class="w-full p-5 mx-auto mt-5 md:shadow-lg md:w-2/5 md:p-10 md:mt-10">
+  <div *ngIf="allStudents; else elseBlock">
+    <div *ngFor="let student of allStudents; let i = index">
+        <div class="w-full p-5 mx-auto md:w-2/5">
+            <p>{{student.firstname}}</p>
+            <p>{{student.lastname}}</p>
+            <p>{{student.matricno}}</p>
+            <p>{{student.department}}</p>
+            <p>{{student.email}}</p>
+            <p>{{student.password}}</p>
+        </div>
+    </div>
+  </div>
+
+  <ng-template #elseBlock>
+    <div class="text-center">
+      <p class="mb-5 text-xl font-semibold text-red-500">User not found!</p>
+      <a
+        routerLink="/adminregister"
+        class="text-xl text-blue-500 transition hover:underline hover:text-blue-700"
+        >Go back</a
+      >
+    </div>
+  </ng-template>
+</div>

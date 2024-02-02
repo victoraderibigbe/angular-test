@@ -1,0 +1,47 @@
+<div
+  class="w-full p-5 mx-auto mt-2 md:w-2/5 md:mt-5"
+>
+  <div class="p-5 shadow-lg rounded-xl">
+    <h2 class="mb-5 text-3xl font-semibold text-center underline md:text-4xl text-slate-800">
+      Student Sign Up
+    </h2>
+    <div class={{errStyles}}>{{errMsg}}</div>
+    <input
+      type="text"
+      class="{{ this.inputStyles }}"
+      [(ngModel)]="first_name"
+      placeholder="First Name"
+    />
+    <input
+      type="text"
+      class="{{ this.inputStyles }}"
+      [(ngModel)]="last_name"
+      placeholder="Last Name"
+    />
+    <input
+      type="text"
+      class="{{ this.inputStyles }}"
+      [(ngModel)]="matric_no"
+      placeholder="Matric Number"
+    />
+    <input
+      type="text"
+      class="{{ this.inputStyles }}"
+      [(ngModel)]="department"
+      placeholder="Department"
+    />
+    <input
+      type="text"
+      class="{{ this.inputStyles }}"
+      [(ngModel)]="email"
+      placeholder="Email"
+    />
+    <input
+      type="text"
+      class="{{ this.inputStyles }}"
+      [(ngModel)]="password"
+      placeholder="Password"
+    />
+    <button (click)="handleRegister()" class="{{ this.btnStyles }}">Register</button>
+  </div>
+</div>
