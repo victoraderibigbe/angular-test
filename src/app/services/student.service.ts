@@ -22,6 +22,11 @@ export class StudentService {
     return err_msg;
   }
 
+  successMessage() {
+    let successMsg = 'w-full h-16 bg-green-100 border-2 border-green-500 rounded-lg text-lg text-green-500 text-center font-semibold flex items-center justify-center'
+    return successMsg;
+  }
+
   generateUniqueId(): string {
     // Create a random number and convert it to a hexadecimal string
     const randomHex = Math.random().toString(16).substring(2, 10);

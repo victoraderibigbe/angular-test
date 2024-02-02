@@ -1,6 +1,7 @@
 <div class="w-full p-5 mx-auto mt-5 md:shadow-lg md:w-2/5 md:p-10 md:mt-10">
   <div *ngIf="allStudents; else elseBlock">
     <h2 class="text-3xl font-semibold text-center">CROWNWEALTH INSTITUTION</h2>
+    <button class="px-3 py-2 text-white bg-red-500 rounded-lg" (click)="handleLogout()">Logout</button>
     <div *ngFor="let student of allStudents; let i = index">
         <div class="w-full p-5 mx-auto md:w-2/5">
             <p>{{student.firstname}}</p>

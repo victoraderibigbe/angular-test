@@ -38,7 +38,9 @@ export class SignupComponent {
 
   // Initialize properties to display error messages and styles
   public errStyles = ''
+  public successStyles = ''
   public errMsg = ''
+  public successMsg = ''
 
   // Initialize empty array to store all students
   public allStudents: StudentInterface[] = []
@@ -83,6 +85,17 @@ export class SignupComponent {
       if (saveStudent) {
         // this.route.navigate(['/login'])
         console.log('Student saved');
+
+        // Get error style from FormService and display error message
+        this.successStyles = this.service.successMessage()
+        this.successMsg = 'Registration Successful!'
+
+        // Remove error message after 3 seconds
+        setTimeout(() => {
+          this.successStyles = ''
+          this.errMsg = ''
+          window.location.reload()
+        }, 3000);
         
       }
       else {

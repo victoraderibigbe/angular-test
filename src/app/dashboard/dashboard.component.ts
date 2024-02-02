@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 // Interface for student details
 interface StudentInterface {
@@ -19,6 +20,7 @@ interface StudentInterface {
   styleUrl: './dashboard.component.css'
 })
 export class DashboardComponent {
+  constructor(public route:Router) {}
 
   public allStudents: StudentInterface[] = []
 
@@ -26,5 +28,11 @@ export class DashboardComponent {
     // Get all students from localStorage
     this.allStudents = JSON.parse(localStorage['students_'])
 
+  }
+
+  handleLogout() {
+    localStorage.removeItem('current_admin')
+    localStorage.removeItem('admin_id')
+    this.route.navigate(['/adminlogin'])
   }
 }
