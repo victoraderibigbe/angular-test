@@ -1,17 +1,67 @@
-<div class="w-full p-5 mx-auto mt-5 md:shadow-lg md:w-2/5 md:p-10 md:mt-10">
+<div class="w-full p-5 mx-auto mt-5 md:shadow-lg md:w-3/4 md:p-10 md:mt-10">
   <div *ngIf="allStudents; else elseBlock">
     <h2 class="text-3xl font-semibold text-center">CROWNWEALTH INSTITUTION</h2>
-    <button class="px-3 py-2 text-white bg-red-500 rounded-lg" (click)="handleLogout()">Logout</button>
-    <div *ngFor="let student of allStudents; let i = index">
-        <div class="w-full p-5 mx-auto md:w-2/5">
-            <p>{{student.firstname}}</p>
-            <p>{{student.lastname}}</p>
-            <p>{{student.matricno}}</p>
-            <p>{{student.department}}</p>
-            <p>{{student.email}}</p>
-            <p>{{student.password}}</p>
-        </div>
+    <div>
+        <button class="px-3 py-2 my-3 text-white bg-red-500 rounded-lg" (click)="handleLogout()">Logout</button>
     </div>
+    
+    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+        <table class="w-full text-sm text-left text-gray-500 rtl:text-right dark:text-gray-400">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                <tr>
+                    <th scope="col" class="px-6 py-3">
+                        First Name
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Last Name
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Matric Number
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Department
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Email
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Password
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Actions
+                    </th>
+                </tr>
+            </thead>
+            
+            <tbody *ngFor="let student of allStudents; let i = index">
+                <tr class="border-b odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 dark:border-gray-700">
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        {{student.firstname}}
+                    </th>
+                    <td class="px-6 py-4">
+                        {{student.lastname}}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{student.matricno}}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{student.department}}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{student.email}}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{student.password}}
+                    </td>
+                    <td class="px-6 py-4">
+                        <button class="px-3 py-2 my-3 font-medium text-white transition bg-yellow-300 rounded-lg hover:opacity-80">Edit</button>
+                        <button class="px-3 py-2 my-3 font-medium text-white transition bg-red-500 rounded-lg hover:opacity-80">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
   </div>
 
   <ng-template #elseBlock>
@@ -25,3 +75,7 @@
     </div>
   </ng-template>
 </div>
+
+
+
+
