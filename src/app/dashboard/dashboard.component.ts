@@ -63,7 +63,7 @@ export class DashboardComponent {
     })
 
   }
-
+public id: number = 0
   // Function to handle admin logout
   handleLogout() {
     localStorage.removeItem('current_admin')
@@ -71,8 +71,12 @@ export class DashboardComponent {
     this.route.navigate(['/adminlogin'])
   }
 
+  openEdit(i:number) {
+    this.id= i
+  }
+
   // Function to handle student data update
-  handleUpdate(i: number) {
+  handleUpdate() {
     const students: StudentInterface = {
       firstname: this.first_name,
       lastname: this.last_name,
@@ -82,7 +86,7 @@ export class DashboardComponent {
       password: this.password
     }
     // console.log(students);
-    this.allStudents.splice(i, 1, students)
+    this.allStudents.splice(this.id, 1, students)
     localStorage.setItem('students_', JSON.stringify(this.allStudents))
     window.location.reload()
 
